@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Dummy command
-      run: less foo  # fails because file does not exist
+      run: touch foo 
