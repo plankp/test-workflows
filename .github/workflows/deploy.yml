@@ -10,7 +10,7 @@ on:
 jobs:
   deploy-to-server:
     runs-on: ubuntu-latest
-    if: ${{ github.eveent.workflow_run.conclusiion == 'success' }}
+    if: ${{ github.eveent.workflow_run.conclusion == 'success' }}
     steps:
     - name: Dummy deploy
       run: echo "Deployed!"
