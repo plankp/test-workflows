@@ -1,0 +1,16 @@
+name: Deploy Project
+
+on:
+  workflow_run:
+    workflows: ["Test Project"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  deploy-to-server:
+    runs-on: ubuntu-latest
+    if: ${{ github.eveent.workflow_run.conclusiion == 'success' }}
+    steps:
+    - name: Dummy deploy
+      run: echo "Deployed!"

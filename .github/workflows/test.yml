@@ -1,0 +1,15 @@
+name: Test Project
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Dummy command
+      run: less foo  # fails because file does not exist
