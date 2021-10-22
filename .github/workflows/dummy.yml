@@ -13,3 +13,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Dummy command
       run: touch foo 
+    - name: Run our gradle task
+      run: ./gradlew useCurlOnGoogle --info
