@@ -17,7 +17,7 @@ jobs:
 #      run: |
 #        false
 #        true
-    - name: Seconnd one fails
-      run: |
-        true
-        false
+#     - name: Seconnd one fails # this one also fails
+#       run: |
+#         true
+#         false
