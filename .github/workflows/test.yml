@@ -13,3 +13,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Dummy command
       run: touch foo 
+    - name: First one fails
+      run: |
+        false
+        true
+    - name: Seconnd one fails
+      run: |
+        true
+        false
