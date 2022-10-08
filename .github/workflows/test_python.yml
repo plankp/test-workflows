@@ -26,7 +26,7 @@ jobs:
     - name: Generate readable coverage report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: coverage.xml
+        filename: pythons/coverage.xml
         badge: true
         format: 'markdown'
         output: 'file'  # pytest will already output in console
