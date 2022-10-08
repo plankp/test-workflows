@@ -35,4 +35,4 @@ jobs:
         recreate: true
         path: code-coverage-results.md  # generated in the last step
     - name: Update job summary
-      run: cat code-coverage.results.md >> $GITHUB_STEP_SUMMARY
+      run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
