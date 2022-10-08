@@ -1,0 +1,40 @@
+name: Test Python
+
+on:
+  push:
+  pull_request:
+    branches: main
+
+defaults:
+  run:
+    working-directory: pythons
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Run tests
+      run: pytest --cov=src --cov-report xml
+    - name: Generate readable coverage report
+      uses: irongut/CCodeCoverageSummary@1.3.0
+      with:
+        filename: coverage.xml
+        badge: true
+        format: 'markdown'
+        output: 'file'  # pytest will already output in console
+    - name: Add PR comment
+      uses: marocchino/sticky-pull-request-comment@v2
+      if: github.event_name == 'pull_request'
+      with:
+        recreate: true
+        path: code-coverage-results.md  # generated in the last step
+    - name: Update job summary
+      run: cat code-coverage.results.md >> $GITHUB_STEP_SUMMARY
